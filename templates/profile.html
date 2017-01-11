@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h2>{{ user.name }}님의 프로필</h2>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">회원 정보</h3>
+            </div>
+            <table class="table table-info">
+                <tr>
+                    <td>Email</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+                {% if 'user_id' in session and user.id == session['user_id'] %}
+                <tr>
+                    <td>Password</td>
+                    <td><a href="#">[비밀번호 변경]</a></td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>Name</td>
+                    <td>{{ user.name }}</td>
+                </tr>
+            </table>
+        </div>
+
+        {% if 'user_id' in session and user.id == session['user_id'] %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">소셜 로그인</h3>
+            </div>
+            <table class="table table-info">
+                <tr>
+                    <td>Facebook</td>
+                    <td>
+                    {%- if user.facebook_connect -%}
+                        <span>연결됨</span>
+                        <a href="#">[연결 해제]</a>
+                    {%- else -%}
+                        <span>연결되지 않음</span>
+                        <a href="#">[연결하기]</a>
+                    {%- endif -%}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% endif %}
+    </div> <!-- /container -->
+
+{% endblock %}

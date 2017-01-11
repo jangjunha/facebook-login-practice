@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+  <form class="form-signin" action="{{ url_for('signin') }}" method="post">
+    {% if alert %}
+    <div class="alert-box">
+        <p>{{ alert }}</p>
+    </div>
+    {% endif %}
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ request.cookies.get('email', '') }}" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="remember-me" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <a href="{{ url_for('signup') }}" class="btn btn-lg btn-info btn-block" role="button">Sign up</a>
+
+    <div class="divider">
+        <span>또는</span>
+    </div>
+
+    <a href="{{ url_for('facebook_login') }}" class="btn btn-lg btn-danger btn-block" role="button">Facebook Login</a>
+  </form>
+
+{% endblock %}

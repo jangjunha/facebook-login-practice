@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>히-익</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ url_for('index') }}">히-익</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <div class="navbar-form navbar-right">
+                    {% if 'user_id' in session %}
+                    <a href="{{ url_for('my_profile') }}" class="btn btn-transparent" role="button">{{ g.user.name }}</a>
+                    <a href="{{ url_for('logout') }}" class="btn btn-default" role="button">Logout</a>
+                    {% else %}
+                    <a href="{{ url_for('signin') }}" class="btn btn-default" role="button">Sign in</a>
+                    {% endif %}
+                </div>
+            </div><!--/.navbar-collapse -->
+          </div>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer>
+            <hr>
+            <p>&copy; 2017 jangjunha. Template from bootstrap.</p>
+        </footer>
+
+    </body>
+</html>

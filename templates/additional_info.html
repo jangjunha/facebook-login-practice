@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+  <form class="form-signin" action="{{ url_for('facebook_signup') }}" method="post">
+    <div class="alert-box">
+        <p>가입하려면 다음 추가 정보를 입력해야합니다.</p>
+    </div>
+    <h2 class="form-signin-heading">추가 정보 입력</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{ email }}" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="hidden" name="facebook_token" value="{{ facebook_token }}">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>안녕, 소셜로그인!</h1>
+        <p>Flask를 이용해서 페이스북 로그인 플로 직접 빌드 해보기.<br><a href="https://github.com/jangjunha/facebook-login-practice">https://github.com/jangjunha/facebook-login-practice</a> 에서 전체 소스를 확인할 수 있어요!</p>
+        <p><a class="btn btn-primary btn-lg" href="{{ url_for('signin') }}" role="button">로그인 화면으로 &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+          <div class="col-md-4">
+            <h2>페이스북 로그인</h2>
+            <p>사용자는 이메일과 비밀번호로 회원가입 할 수 있고 페이스북 계정으로도 로그인 할 수 있습니다. 페이스북 계정으로 가입한 사용자는 이메일과 비밀번호를 추가로 입력해야 가입할 수 있습니다. </p>
+            <p><a class="btn btn-default" href="https://developers.facebook.com/docs/facebook-login" role="button">View details &raquo;</a></p>
+          </div>
+          <div class="col-md-4">
+            <h2>Bootstrap</h2>
+            <p>Bootstrap framework를 사용해 간단하게 웹 페이지를 구성했습니다. Bootstrap 공식 홈페이지에서 제공하는 예제를 참조했습니다. </p>
+            <p><a class="btn btn-default" href="https://getbootstrap.com/" role="button">View details &raquo;</a></p>
+          </div>
+        </div>
+
+    </div> <!-- /container -->
+{% endblock %}
